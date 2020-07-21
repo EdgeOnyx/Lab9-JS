@@ -18,7 +18,7 @@ const Edit = function (props) {
 
   useEffect(() => {
     (async () => {
-      const blogResp = await Axios.get(`/blogs/${id}`);
+      const blogResp = await Axios.get(`/api/blogs/${id}`);
       if (blogResp.status === 200) setInputs(blogResp.data);
     })();
   }, []);
@@ -27,7 +27,7 @@ const Edit = function (props) {
     event.preventDefault();
 
     try {
-      const resp = await Axios.post('/blogs/update', inputs);
+      const resp = await Axios.post('/api/blogs/update', inputs);
 
       if (resp.status === 200)  {
         toast("The blog was updated successfully", {
